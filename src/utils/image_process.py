@@ -31,8 +31,13 @@ def load_image(path, gray=False, standard_norm=False):
     return image, torch.from_numpy(image)
 
 
-# 读取相关张量数据
+# Get images' data in the format of tensor
 def read_tensor(data_item, standard_transform, add_dim=True):
+    """
+             data_item: A dictionary that holds the path to the relevant picture
+    standard_transform: if it is true then range is [0,1]; else range is [-1,1] , range refers to minimum and maximun value in the matrix
+               add_dim: if output matrix should be unsqueezed
+    """
     _, mask = load_image(data_item["mask"], standard_norm=standard_transform, gray=True)
     _, bg = load_image(data_item["bg"], standard_norm=standard_transform)
     _, wm = load_image(data_item["wm"], standard_norm=standard_transform)
