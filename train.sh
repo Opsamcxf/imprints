@@ -1,12 +1,12 @@
 #!/bin/bash
 
-rm ./wm_adv_0.png
-rm ./wm_adv_0.pt
-rm ./wm_adv_mask_0.pt
-rm ./ckpt_wm/slbr/wm_adv_0.pt
-rm ./ckpt_wm/slbr/wm_adv_best.png
-rm ./ckpt_wm/slbr/wm_adv_latest.png
-rm ./ckpt_wm/slbr/wm_adv_mask_end.pt
+# rm ./wm_adv_0.png
+# rm ./wm_adv_0.pt
+# rm ./wm_adv_mask_0.pt
+# rm ./ckpt_wm/slbr/wm_adv_0.pt
+# rm ./ckpt_wm/slbr/wm_adv_best.png
+# rm ./ckpt_wm/slbr/wm_adv_latest.png
+# rm ./ckpt_wm/slbr/wm_adv_mask_end.pt
 
 
 time=$(date "+%Y-%m-%d-%H-%M-%S")
@@ -47,7 +47,8 @@ elif [ "$model" == "slbr" ];then
     --standard_transform 1 \
     --eps 0.2 \
     --log $log_dir \
-    --gpu 0,1,2,3 \
+    --gpu 1,2,3 \
+    --sample_num 200 \
     --batch_size 20
 elif [ "$model" == "split" ];then
     python train.py --model split \
