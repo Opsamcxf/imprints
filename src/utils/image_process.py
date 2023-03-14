@@ -31,7 +31,7 @@ def load_image(path, gray=False, standard_norm=False):
     return image, torch.from_numpy(image)
 
 
-# Get images' data in the format of tensor
+# Get images' data in the format of tensor or arrary
 def read_tensor(data_item, standard_transform, add_dim=True):
     """
              data_item: A dictionary that holds the path to the relevant picture
